@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Product from '../components/Product';
-import { BiFoodTag } from 'react-icons/bi';
+
 
 const HomeWrapper = styled.section`
   background-color: #a8a8a5;
@@ -42,16 +42,6 @@ const HomeScreen = ({ history }) => {
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
-
-  const sortRating = () => {
-    products.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
-    console.log(products);
-  };
-
-  const sortPrice = () => {
-    products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-    console.log(products);
-  };
 
   return (
     <HomeWrapper>
